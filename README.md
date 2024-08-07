@@ -4,6 +4,12 @@ A super fancy CLI daily quiz tool which downloads questions each day from the Op
 
 Inspired by Fireship's [Node.js CLI Tutorial](https://youtu.be/_oHByo8tiEY) video on YouTube.
 
+## Take the Quiz
+
+```
+npx cli-daily-quiz
+```
+
 ## Packages Used
 
 [chalk](https://github.com/chalk/chalk) |
