@@ -53,13 +53,15 @@ const incorrectAnswerResponses = [
   "Better luck next time",
 ];
 
+// Timeout helper function - 2s default delay
+
+const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
+
 // Get the current date for quiz json filename
 const day = date.getDate();
 const month = date.getMonth() + 1;
 const year = date.getFullYear();
 const currentDate = `${day}-${month}-${year}`;
-
-const quizUrl = `https://opentdb.com/api.php?amount=${quizNumberOfQuestions}&difficulty=${quizDifficulty}`;
 
 // Helper function to provide a random item from an array
 
@@ -129,10 +131,6 @@ async function downloadQuizJSON(
     console.error(err);
   }
 }
-
-// Timeout helper function - 2s default delay
-
-const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
 async function welcome() {
   const rainbowTitle = chalkAnimation.rainbow(
@@ -223,6 +221,7 @@ await numberOfQuestions();
 await sleep();
 console.clear();
 
+const quizUrl = `https://opentdb.com/api.php?amount=${quizNumberOfQuestions}&difficulty=${quizDifficulty}`;
 try {
   if (!fs.existsSync(`${folderName}/${currentDate}.json`)) {
     const response = await ky.get(quizUrl);
