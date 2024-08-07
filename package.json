@@ -1,5 +1,5 @@
 {
-  "name": "cli-daily-quiz"
+  "name": "cli-daily-quiz",
   "version": "1.0.1",
   "main": "index.js",
   "type": "module",
